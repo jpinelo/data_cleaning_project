@@ -3,12 +3,12 @@ Joao Pinelo Silva
 March 29, 2016  
 
 #### Summary of stept-actions of script *run_analysis* 
-0 - Load libraries and download data.     
-1 - Merges the training and the test sets to create one data set.     
-2 - Extracts only the measurements on the mean and standard deviation for each measurement.     
-3 - Uses descriptive activity names to name the activities in the data set.     
-4 - Appropriately labels the data set with descriptive variable names.     
-5 - From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.       
+0. Load libraries and download data.     
+1. Merges the training and the test sets to create one data set.     
+2. Extracts only the measurements on the mean and standard deviation for each measurement.     
+3. Uses descriptive activity names to name the activities in the data set.     
+4. Appropriately labels the data set with descriptive variable names.     
+5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.       
 These steps are indicated throughout the script for faciiltating the identification of each step.      
 
 **Data Source**: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip     
@@ -38,7 +38,9 @@ The feature and activities files are both imported to data frames with two colum
 The column of the data frame containing the variable names is parsed (string-based, `grep()`) to identify all instances where the measurement is either a mean or a standard deviation (std). Once identified, an index vector with their positions is used to eliminate the columns from the main dataset (`testTrainSet`), resulting in `testTrainSetmeanStd`. 
 Activity labels are imported to a data frame with two variables, a code and a description. This data frame is merged with `testTrainSetmeanStd` based on the activity code, providing descriptive labels for each activity on the main table (`testTrainSetmeanStdActivityLabels`).   
 
-#####Final Output - `testTrainSetmeanStdActivityLabels`
-The resulting dataset is converted into a tidy dataset by grouping subjects and activities so that each row corresponds to a unique observation, and each variable is stored in one column. 
+#####Tidy Dataset - `testTrainSetmeanStdActivityLabels`
+The resulting dataset is converted into a tidy dataset by grouping subjects and activities so that each row corresponds to a unique observation, and each variable is stored in one column.      
 
+#####Output - `tidySet.txt`          
+At the end of the script, the tidy dataset is exported as `tidySet.txt`.
 
