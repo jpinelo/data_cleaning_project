@@ -1,5 +1,5 @@
 # README script run_analysis
-JPS  
+Joao Pinelo Silva  
 March 29, 2016  
 
 #### Summary of stept-actions of script *run_analysis* 
