@@ -1,12 +1,19 @@
-# codebook
+# codebook  script run_analysis
 Joao Pinelo Silva  
 March 29, 2016  
 
-testTrainSet - data.table object containing the train and test data for all subjects. Variables: subject (id of the subject as per subject_test.txt and subject_train.txt); value (movement value in same units as x_test.txt and x_train.txt); activity (the activity performed by the subjects as in y_test.txt and y_train.txt)
+#### Summary Decsription of Dataset and  Variables Created       
 
+Note:       
+* Should be consulted jointly with the codebook of the original data, as it expands on it, rather than replacing it.       
 
+####Dataset       
+`testTrainSet` - data.table object containing the train and test data for all subjects. Variables: subject (id of the subject as per subject_test.txt and subject_train.txt); value (movement value in same units as x_test.txt and x_train.txt); activity (the activity performed by the subjects as in y_test.txt and y_train.txt)
 
-A tidy dataset (tidySet) was produced from calculatiing the mean of all variables grouped by activity and subject. Each variable is therefore the mean of the variable with similar name in features.txt. The variables are the following:      
+####Variables            
+
+      
+A tidy dataset (`tidySet`) was produced from calculatiing the mean of all variables grouped by activity and subject. Each variable is therefore the mean of the variable with similar name in `features.txt`. The variables created are the following:      
 [1] "activitylabel"
 
 [1] "subject"
