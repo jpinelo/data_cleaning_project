@@ -3,7 +3,7 @@ JPS
 March 29, 2016  
 
 #### Summary of stept-actions of script *run_analysis* 
-0 - Load libraries, download data.     
+0 - Load libraries and download data.     
 1 - Merges the training and the test sets to create one data set.     
 2 - Extracts only the measurements on the mean and standard deviation for each measurement.     
 3 - Uses descriptive activity names to name the activities in the data set.     
@@ -16,10 +16,16 @@ These steps are indicated throughout the script for faciiltating the identificat
 
 **Complementary Information**: codebook.md should be consulted jointly with the codebook of the original data, as it expands on it, rather than replacing it.
 
-####Detailed Description of the Analysis Process     
-The script run_analysis.R downloads accelerameter data from the source indicated above.     
+
+####Description of the Analysis Process     
+Notes:     
+
+* The steps for downloading data are 'masked'as notes on the script to avoid lengthy repeated downloads when the data is already local.
+
+* The script *run_analysis.R* downloads accelerameter data from the source indicated above.     
 The Codebook does not replace, but rather completes, the information about the original data, which can be found through the link indicated above.
 
+#####Summary
 The script joins training and testing data into one table. In the process, it keeps only variables which refer to mean and standard deviation of some measurement (see codebook for more info). It proceeds to compute the means of each one of the measurements per activity and subject.      
 
 The script is documented throughout and includes a summary of each of five steps, as summarized above.
@@ -32,6 +38,7 @@ The feature and activities files are both imported to data frames with two colum
 The column of the data frame containing the variable names is parsed (string-based, `grep()`) to identify all instances where the measurement is either a mean or a standard deviation (std). Once identified, an index vector with their positions is used to eliminate the columns from the main dataset (`testTrainSet`), resulting in `testTrainSetmeanStd`. 
 Activity labels are imported to a data frame with two variables, a code and a description. This data frame is merged with `testTrainSetmeanStd` based on the activity code, providing descriptive labels for each activity on the main table (`testTrainSetmeanStdActivityLabels`).   
 
+#####Final Output - `testTrainSetmeanStdActivityLabels`
 The resulting dataset is converted into a tidy dataset by grouping subjects and activities so that each row corresponds to a unique observation, and each variable is stored in one column. 
 
 
