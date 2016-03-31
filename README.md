@@ -8,10 +8,13 @@ March 29, 2016
 2 - Extracts only the measurements on the mean and standard deviation for each measurement.     
 3 - Uses descriptive activity names to name the activities in the data set.     
 4 - Appropriately labels the data set with descriptive variable names.     
-5 - From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.      
+5 - From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.       
+These steps are indicated throughout the script for faciiltating the identification of each step.      
 
 **Data Source**: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip     
 **Original Data Information**: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+**Complementary Information**: codebook.md should be consulted jointly with the codebook of the original data, as it expands on it, rather than replacing it.
 
 ####Detailed Description of the Analysis Process     
 The script run_analysis.R downloads accelerameter data from the source indicated above.     
@@ -27,7 +30,8 @@ The test and train datasets are similar in structure, varying only on the number
 The feature and activities files are both imported to data frames with two columns each. The variables of the train and test files named after the column of features which contains the names of the variables in order. Once named, test and train are merged (vertically), including data for all participants (test and train) in one data frame. The outcome is then added (horizontally) with the data frame with subject ids and activity type (testTrainSet). 
 
 The column of the data frame containing the variable names is parsed (string-based) to identify all instances where the measurement is either a mean or a standard deviation (std). Once identified, an index vector with their positions is used to eliminate the columns from the main dataset (testTrainSet), resulting in testTrainSetmeanStd. 
-Activity labels are imported to a data frame with two variables, a code and a description. This data frame is merged with testTrainSetmeanStd based on the activity code, providing descriptive labels for each activity on the main table (testTrainSetmeanStdActivityLabels).     
+Activity labels are imported to a data frame with two variables, a code and a description. This data frame is merged with testTrainSetmeanStd based on the activity code, providing descriptive labels for each activity on the main table (testTrainSetmeanStdActivityLabels).   
+
 The resulting dataset is converted into a tidy dataset by grouping subjects and activities so that each row corresponds to a unique observation, and each variable is stored in one column. 
 
 
