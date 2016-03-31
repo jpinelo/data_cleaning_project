@@ -1,8 +1,8 @@
 # README script run_analysis
-Joao Pinelo Silva  
+JPS  
 March 29, 2016  
 
-### Summary of stept-actions of script *run_analysis* 
+#### Summary of stept-actions of script *run_analysis* 
 0 - Load libraries, download data.     
 1 - Merges the training and the test sets to create one data set.     
 2 - Extracts only the measurements on the mean and standard deviation for each measurement.     
