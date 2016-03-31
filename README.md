@@ -15,8 +15,9 @@ March 29, 2016
 
 ####Detailed Description of the Analysis Process     
 The script run_analysis.R downloads accelerameter data from the source indicated above.     
-The Codebook does dnot replace, but rather completed the information about the original data, which can be found through the link indicated above.
-and joins training and testing data into one table. In the process, it keeps only variables which refer to mean and standard deviation of some measurement (see codebook for more info). It proceeds to compute the means of each one of the measurements per activity and subject.      
+The Codebook does not replace, but rather completes, the information about the original data, which can be found through the link indicated above.
+
+The script joins training and testing data into one table. In the process, it keeps only variables which refer to mean and standard deviation of some measurement (see codebook for more info). It proceeds to compute the means of each one of the measurements per activity and subject.      
 
 The script is documented throughout and includes a summary of each of five steps, as summarized above.
 In the script, the data download is added as a note to avoid unnecessary repetition of such task, but can be used on the first run if the Samsung data is not in the working directory.       
