@@ -1,8 +1,8 @@
-# README
+# README script run_analysis
 Joao Pinelo Silva  
 March 29, 2016  
 
-### Summary of stept-actions of script: *sun_analysis* 
+### Summary of stept-actions of script *run_analysis* 
 0 - Load libraries, download data.     
 1 - Merges the training and the test sets to create one data set.     
 2 - Extracts only the measurements on the mean and standard deviation for each measurement.     
@@ -27,10 +27,10 @@ In the script, the data download is added as a note to avoid unnecessary repetit
 After downloading the data, the script loads the test and train data to variables. It also loads the features file to identify the names of variables used in the test and train data.       
 
 The test and train datasets are similar in structure, varying only on the number of rows(subjects). The x files consist of accelerometer data, which is loaded into a data frame, each of the 561 measurements (variables) per column.
-The feature and activities files are both imported to data frames with two columns each. The variables of the train and test files named after the column of features which contains the names of the variables in order. Once named, test and train are merged (vertically), including data for all participants (test and train) in one data frame. The outcome is then added (horizontally) with the data frame with subject ids and activity type (testTrainSet). 
+The feature and activities files are both imported to data frames with two columns each. The variables of the train and test files named after the column of features which contains the names of the variables in order. Once named, test and train are merged (vertically, `rbind()`), including data for all participants (test and train) in one data frame. The outcome is then added (horizontally, `cbind()`) with the data frame with subject ids and activity type (`testTrainSet`). 
 
-The column of the data frame containing the variable names is parsed (string-based) to identify all instances where the measurement is either a mean or a standard deviation (std). Once identified, an index vector with their positions is used to eliminate the columns from the main dataset (testTrainSet), resulting in testTrainSetmeanStd. 
-Activity labels are imported to a data frame with two variables, a code and a description. This data frame is merged with testTrainSetmeanStd based on the activity code, providing descriptive labels for each activity on the main table (testTrainSetmeanStdActivityLabels).   
+The column of the data frame containing the variable names is parsed (string-based, `grep()`) to identify all instances where the measurement is either a mean or a standard deviation (std). Once identified, an index vector with their positions is used to eliminate the columns from the main dataset (`testTrainSet`), resulting in `testTrainSetmeanStd`. 
+Activity labels are imported to a data frame with two variables, a code and a description. This data frame is merged with `testTrainSetmeanStd` based on the activity code, providing descriptive labels for each activity on the main table (`testTrainSetmeanStdActivityLabels`).   
 
 The resulting dataset is converted into a tidy dataset by grouping subjects and activities so that each row corresponds to a unique observation, and each variable is stored in one column. 
 
