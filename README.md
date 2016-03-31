@@ -13,11 +13,12 @@ March 29, 2016
 **Data Source**: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip     
 **Original Data Information**: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
-####Detailed Description of the Analysis Process
-The script run_analysis.R downloads accelerameter data (https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip )      
+####Detailed Description of the Analysis Process     
+The script run_analysis.R downloads accelerameter data from the source indicated above.     
+The Codebook does dnot replace, but rather completed the information about the original data, which can be found through the link indicated above.
 and joins training and testing data into one table. In the process, it keeps only variables which refer to mean and standard deviation of some measurement (see codebook for more info). It proceeds to compute the means of each one of the measurements per activity and subject.      
 
-The script is documented throughout and includes a summary of each of five steps.
+The script is documented throughout and includes a summary of each of five steps, as summarized above.
 In the script, the data download is added as a note to avoid unnecessary repetition of such task, but can be used on the first run if the Samsung data is not in the working directory.       
 After downloading the data, the script loads the test and train data to variables. It also loads the features file to identify the names of variables used in the test and train data.       
 
